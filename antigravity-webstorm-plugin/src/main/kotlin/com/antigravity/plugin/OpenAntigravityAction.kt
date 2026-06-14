@@ -27,7 +27,7 @@ class OpenAntigravityAction : AnAction() {
                 val getInstance = terminalViewClass.getMethod("getInstance", Project::class.java)
                 val instance = getInstance.invoke(null, project)
                 val createLocalShellWidget = terminalViewClass.getMethod("createLocalShellWidget", String::class.java, String::class.java)
-                val widget = createLocalShellWidget.invoke(instance, project.basePath, "Antigravity CLI")
+                val widget = createLocalShellWidget.invoke(instance, project.basePath ?: System.getProperty("user.home"), "Antigravity CLI")
                 val executeCommand = widget.javaClass.getMethod("executeCommand", String::class.java)
                 executeCommand.invoke(widget, "agy")
             } catch (fallbackEx: Throwable) {
