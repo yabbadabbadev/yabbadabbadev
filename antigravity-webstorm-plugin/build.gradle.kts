@@ -33,6 +33,10 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 intellijPlatform {
     pluginConfiguration {
         name = "Antigravity CLI"
+        ideaVersion {
+            sinceBuild = "241"
+            untilBuild = provider { null }
+        }
     }
 }
 
