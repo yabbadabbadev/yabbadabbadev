@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <!-- Spiral path -->
+  <path d="M 8 1 C 12 1 15 4 15 8 C 15 11.5 12 14.5 8 14.5 C 4.5 14.5 1.5 11.5 1.5 8 C 1.5 5 4 2.5 7.5 2.5 C 10.5 2.5 12.5 4.5 12.5 7.5 C 12.5 10 10.5 11.5 8 11.5 C 6 11.5 4.5 10 4.5 8" stroke="#A6A6A6" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Blue dot -->
+  <circle cx="12" cy="3" r="2.5" fill="#3B82F6"/>
+</svg>
