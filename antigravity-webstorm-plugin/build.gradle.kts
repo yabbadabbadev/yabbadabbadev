@@ -21,8 +21,23 @@ dependencies {
     }
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions.jvmTarget = "17"
+}
+
 intellijPlatform {
     pluginConfiguration {
         name = "Antigravity CLI"
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("com.jetbrains.intellij.java:java-compiler-ant-tasks:241.14494.240")
     }
 }
