@@ -1,8 +1,0 @@
-.gradle/
-build/
-/out/
-.idea/
-*.iws
-*.iml
-*.ipr
-.intellijPlatform/

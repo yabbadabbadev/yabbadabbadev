@@ -41,6 +41,6 @@ Antes de dar cualquier tarea por completada o afirmar que todo funciona, debes e
 ---
 
 ## 4. Gestión de Contexto de IA
-- Para tareas complejas, utiliza `/docs/superpowers/specs/` para diseñar y validar especificaciones de diseño con el usuario humano antes de escribir código de implementación.
-- Utiliza `/docs/superpowers/plans/` para escribir y seguir planes de implementación paso a paso.
+- Para tareas complejas, utiliza `docs/superpowers/specs/` para diseñar y validar especificaciones de diseño con el usuario humano antes de escribir código de implementación.
+- Utiliza `docs/superpowers/plans/` para escribir y seguir planes de implementación paso a paso.
 - Extrae conocimiento útil o correcciones que surjan durante la sesión en documentos de conocimiento (`docs/`) si consideras que pueden ser útiles en futuras sesiones.
