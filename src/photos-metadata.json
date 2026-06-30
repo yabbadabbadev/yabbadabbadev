@@ -1,90 +1,57 @@
 [
   {
-    "id": "IMG_0919",
-    "filename": "IMG_0919.jpeg",
-    "lat": 40.34936388888889,
-    "lon": 116.00321111111111,
-    "date": "2025-09-13",
+    "id": "barcelona",
+    "filename": "barcelona.jpeg",
+    "lat": 41.385,
+    "lon": 2.1733333333333333,
+    "date": "2025-05-15",
+    "year": 2025,
+    "month": 5,
+    "thumbnail": "/images/thumbnails/barcelona.jpeg",
+    "display": "/images/display/barcelona.jpeg"
+  },
+  {
+    "id": "newyork",
+    "filename": "newyork.jpeg",
+    "lat": 40.71277777777778,
+    "lon": 74.00583333333333,
+    "date": "2025-08-05",
+    "year": 2025,
+    "month": 8,
+    "thumbnail": "/images/thumbnails/newyork.jpeg",
+    "display": "/images/display/newyork.jpeg"
+  },
+  {
+    "id": "paris",
+    "filename": "paris.jpeg",
+    "lat": 48.85638888888889,
+    "lon": 2.3519444444444444,
+    "date": "2025-07-10",
+    "year": 2025,
+    "month": 7,
+    "thumbnail": "/images/thumbnails/paris.jpeg",
+    "display": "/images/display/paris.jpeg"
+  },
+  {
+    "id": "sydney",
+    "filename": "sydney.jpeg",
+    "lat": 33.868611111111115,
+    "lon": 151.20916666666665,
+    "date": "2025-09-25",
     "year": 2025,
     "month": 9,
-    "thumbnail": "/images/thumbnails/IMG_0919.jpeg",
-    "display": "/images/display/IMG_0919.jpeg"
+    "thumbnail": "/images/thumbnails/sydney.jpeg",
+    "display": "/images/display/sydney.jpeg"
   },
   {
-    "id": "IMG_1699",
-    "filename": "IMG_1699.jpeg",
-    "lat": 46.43191944444444,
-    "lon": 6.976138888888889,
-    "date": "2025-11-15",
+    "id": "tokyo",
+    "filename": "tokyo.jpeg",
+    "lat": 35.67611111111111,
+    "lon": 139.65027777777777,
+    "date": "2025-06-20",
     "year": 2025,
-    "month": 11,
-    "thumbnail": "/images/thumbnails/IMG_1699.jpeg",
-    "display": "/images/display/IMG_1699.jpeg"
-  },
-  {
-    "id": "IMG_2298",
-    "filename": "IMG_2298.jpeg",
-    "lat": 39.975861111111115,
-    "lon": 6.051794444444444,
-    "date": "2024-03-29",
-    "year": 2024,
-    "month": 3,
-    "thumbnail": "/images/thumbnails/IMG_2298.jpeg",
-    "display": "/images/display/IMG_2298.jpeg"
-  },
-  {
-    "id": "IMG_2822",
-    "filename": "IMG_2822.jpeg",
-    "lat": 10.18313611111111,
-    "lon": 75.7472138888889,
-    "date": "2024-08-18",
-    "year": 2024,
-    "month": 8,
-    "thumbnail": "/images/thumbnails/IMG_2822.jpeg",
-    "display": "/images/display/IMG_2822.jpeg"
-  },
-  {
-    "id": "IMG_5309",
-    "filename": "IMG_5309.jpeg",
-    "lat": 28.535058333333335,
-    "lon": 16.268369444444442,
-    "date": "2025-08-10",
-    "year": 2025,
-    "month": 8,
-    "thumbnail": "/images/thumbnails/IMG_5309.jpeg",
-    "display": "/images/display/IMG_5309.jpeg"
-  },
-  {
-    "id": "IMG_5383",
-    "filename": "IMG_5383.jpeg",
-    "lat": 28.571294444444444,
-    "lon": 16.204766666666664,
-    "date": "2025-08-13",
-    "year": 2025,
-    "month": 8,
-    "thumbnail": "/images/thumbnails/IMG_5383.jpeg",
-    "display": "/images/display/IMG_5383.jpeg"
-  },
-  {
-    "id": "IMG_5583",
-    "filename": "IMG_5583.jpeg",
-    "lat": 46.590225000000004,
-    "lon": 7.9077527777777785,
-    "date": "2024-06-29",
-    "year": 2024,
     "month": 6,
-    "thumbnail": "/images/thumbnails/IMG_5583.jpeg",
-    "display": "/images/display/IMG_5583.jpeg"
-  },
-  {
-    "id": "IMG_7271",
-    "filename": "IMG_7271.jpeg",
-    "lat": 40.823925,
-    "lon": 0.7412249999999999,
-    "date": "2026-05-17",
-    "year": 2026,
-    "month": 5,
-    "thumbnail": "/images/thumbnails/IMG_7271.jpeg",
-    "display": "/images/display/IMG_7271.jpeg"
+    "thumbnail": "/images/thumbnails/tokyo.jpeg",
+    "display": "/images/display/tokyo.jpeg"
   }
 ]
