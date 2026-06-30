@@ -14,6 +14,8 @@ const METADATA_FILE = path.join(__dirname, '../src/photos-metadata.json');
 export function parseMetadata(tags) {
   const lat = tags.GPSLatitude ? tags.GPSLatitude.description : null;
   const lon = tags.GPSLongitude ? tags.GPSLongitude.description : null;
+  const latRef = tags.GPSLatitudeRef ? String(tags.GPSLatitudeRef.value[0] || tags.GPSLatitudeRef.description || 'N').trim().toUpperCase() : 'N';
+  const lonRef = tags.GPSLongitudeRef ? String(tags.GPSLongitudeRef.value[0] || tags.GPSLongitudeRef.description || 'E').trim().toUpperCase() : 'E';
   const dateTag = tags.DateTimeOriginal ? tags.DateTimeOriginal.description : (tags.DateTime ? tags.DateTime.description : null);
   
   if (lat === null || lon === null) {
@@ -32,10 +34,20 @@ export function parseMetadata(tags) {
   const dateParts = dateStr.split('-');
   const year = parseInt(dateParts[0], 10) || 2025;
   const month = parseInt(dateParts[1], 10) || 1;
+
+  let latVal = parseFloat(lat);
+  let lonVal = parseFloat(lon);
+
+  if (latRef.startsWith('S')) {
+    latVal = -Math.abs(latVal);
+  }
+  if (lonRef.startsWith('W')) {
+    lonVal = -Math.abs(lonVal);
+  }
   
   return {
-    lat: parseFloat(lat),
-    lon: parseFloat(lon),
+    lat: latVal,
+    lon: lonVal,
     date: dateStr,
     year,
     month
@@ -73,14 +85,16 @@ async function main() {
       const thumbFilename = `${name}.jpeg`;
       const displayFilename = `${name}.jpeg`;
 
-      // Generate thumbnail: 120x120px square cropped
+      // Generate thumbnail: 120x120px square cropped (auto-rotated first)
       await sharp(fileBuffer)
+        .rotate()
         .resize(120, 120, { fit: 'cover' })
         .toFormat('jpeg', { quality: 80 })
         .toFile(path.join(OUTPUT_DIR, 'thumbnails', thumbFilename));
 
-      // Generate display version: max 1200px inside
+      // Generate display version: max 1200px inside (auto-rotated first)
       await sharp(fileBuffer)
+        .rotate()
         .resize(1200, 1200, { fit: 'inside', withoutEnlargement: true })
         .toFormat('jpeg', { quality: 85 })
         .toFile(path.join(OUTPUT_DIR, 'display', displayFilename));

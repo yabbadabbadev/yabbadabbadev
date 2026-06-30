@@ -57,4 +57,22 @@ describe('process-images parseMetadata', () => {
       month: 1
     });
   });
+
+  it('should parse coordinate signs correctly using GPSLatitudeRef and GPSLongitudeRef', () => {
+    const tags = {
+      GPSLatitude: { description: '41.3851' },
+      GPSLatitudeRef: { value: ['S'], description: 'South latitude' },
+      GPSLongitude: { description: '2.1734' },
+      GPSLongitudeRef: { value: ['W'], description: 'West longitude' },
+      DateTimeOriginal: { description: '2026:06:29 21:00:00' }
+    };
+    const result = parseMetadata(tags);
+    expect(result).toEqual({
+      lat: -41.3851,
+      lon: -2.1734,
+      date: '2026-06-29',
+      year: 2026,
+      month: 6
+    });
+  });
 });
