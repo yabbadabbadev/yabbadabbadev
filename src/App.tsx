@@ -37,6 +37,7 @@ const App = (): React.ReactElement => {
   const mapInstance = useRef<L.Map | null>(null)
   const markersRef = useRef<{ [key: string]: L.Marker }>({})
   const boundsRef = useRef<L.LatLngBounds | null>(null)
+  const lastMapStateRef = useRef<{ center: L.LatLng; zoom: number } | null>(null)
   const [selectedPhoto, setSelectedPhoto] = useState<PhotoMetadata | null>(null)
   const [hoveredTimeNode, setHoveredTimeNode] = useState<string | null>(null)
   const [selectedTimeNode, setSelectedTimeNode] = useState<string | null>(null)
@@ -160,6 +161,11 @@ const App = (): React.ReactElement => {
   // Focus map on photo if selected
   useEffect((): void => {
     if (selectedPhoto && mapInstance.current) {
+      // Save current state before zooming in
+      lastMapStateRef.current = {
+        center: mapInstance.current.getCenter(),
+        zoom: mapInstance.current.getZoom()
+      }
       mapInstance.current.setView([selectedPhoto.lat, selectedPhoto.lon], 10, {
         animate: true
       })
@@ -167,15 +173,17 @@ const App = (): React.ReactElement => {
     }
   }, [selectedPhoto])
 
-  // Handle closing the dialog and restoring bounds
+  // Handle closing the dialog and restoring previous state
   const handleCloseDialog = (): void => {
     dialogRef.current?.close()
     setSelectedPhoto(null)
-    if (mapInstance.current && boundsRef.current) {
-      mapInstance.current.fitBounds(boundsRef.current, {
-        padding: [50, 50],
-        animate: true
-      })
+    if (mapInstance.current && lastMapStateRef.current) {
+      mapInstance.current.setView(
+        lastMapStateRef.current.center,
+        lastMapStateRef.current.zoom,
+        { animate: true }
+      )
+      lastMapStateRef.current = null
     }
   }
 
