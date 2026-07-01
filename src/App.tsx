@@ -36,6 +36,7 @@ const App = (): React.ReactElement => {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstance = useRef<L.Map | null>(null)
   const markersRef = useRef<{ [key: string]: L.Marker }>({})
+  const boundsRef = useRef<L.LatLngBounds | null>(null)
   const [selectedPhoto, setSelectedPhoto] = useState<PhotoMetadata | null>(null)
   const [hoveredTimeNode, setHoveredTimeNode] = useState<string | null>(null)
   const [selectedTimeNode, setSelectedTimeNode] = useState<string | null>(null)
@@ -129,9 +130,11 @@ const App = (): React.ReactElement => {
       markerGroup.addLayer(marker)
     })
 
-    // Fit map bounds to markers if we have any
+    // Fit map bounds to markers if we have any and save bounds ref
     if (photos.length > 0) {
-      map.fitBounds(markerGroup.getBounds(), { padding: [50, 50] })
+      const bounds = markerGroup.getBounds()
+      boundsRef.current = bounds
+      map.fitBounds(bounds, { padding: [50, 50] })
     }
 
     return (): void => {
@@ -164,10 +167,16 @@ const App = (): React.ReactElement => {
     }
   }, [selectedPhoto])
 
-  // Handle closing the dialog
+  // Handle closing the dialog and restoring bounds
   const handleCloseDialog = (): void => {
     dialogRef.current?.close()
     setSelectedPhoto(null)
+    if (mapInstance.current && boundsRef.current) {
+      mapInstance.current.fitBounds(boundsRef.current, {
+        padding: [50, 50],
+        animate: true
+      })
+    }
   }
 
   // SVG Timeline config
@@ -339,18 +348,18 @@ const App = (): React.ReactElement => {
         {selectedPhoto && (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {/* Large Display Image */}
-            <div style={{ width: '100%', maxHeight: '420px', overflow: 'hidden', position: 'relative', background: '#090d16' }}>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#090d16', maxHeight: '70vh', position: 'relative' }}>
               <img
                 src={selectedPhoto.display}
                 alt={selectedPhoto.filename}
-                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+                style={{ width: '100%', height: 'auto', maxHeight: '70vh', objectFit: 'contain', display: 'block' }}
               />
               <button
                 onClick={handleCloseDialog}
                 style={{
                   position: 'absolute',
-                  top: '16px',
-                  right: '16px',
+                  top: '20px',
+                  right: '20px',
                   width: '32px',
                   height: '32px',
                   borderRadius: '50%',
@@ -363,7 +372,8 @@ const App = (): React.ReactElement => {
                   justifyContent: 'center',
                   fontSize: '18px',
                   fontWeight: '300',
-                  lineHeight: 1
+                  lineHeight: 1,
+                  zIndex: 10
                 }}
               >
                 &times;
