@@ -38,6 +38,16 @@ Antes de dar cualquier tarea por completada o afirmar que todo funciona, debes e
 - **Custom Hooks**: Extrae los efectos (`useEffect`), estados complejos o integraciones de APIs en custom hooks separados (ej. `src/hooks/useData.ts`).
 - **Límite de tamaño**: Los archivos de componentes React no deben exceder las 150 líneas de código. Si crecen más, sepáralos en subcomponentes o custom hooks.
 
+### 3.5. Estructura de Componentes y Estilos (MANDATORY)
+- **Ubicación de Componentes**: Cada componente debe residir en su propia carpeta en `src/pages/[PageName]/components/[ComponentName]/` (para componentes específicos de página) o en `src/app/components/[ComponentName]/` (para componentes comunes).
+- **Archivos Requeridos por Componente**: Cada carpeta de componente DEBE incluir:
+  1. El archivo del componente principal: `[ComponentName].tsx`
+  2. Su archivo de estilos asociado: `[ComponentName].css`
+  3. Un archivo de tipos si es necesario: `types.ts`
+  4. Un barrel de exportación: `index.ts` que haga `export * from './[ComponentName]'`
+- **Estilos en Archivos CSS**: Queda prohibido el uso de estilos inline complejos en etiquetas HTML. Los estilos específicos del componente deben residir en su respectivo archivo `.css` y ser importados localmente.
+- **Gestión de Estado**: Para flujos interactivos complejos, se debe inyectar el estado desacoplado de la UI mediante un proveedor de contexto y una interfaz genérica dividida en `{ state, actions, meta }`.
+
 ---
 
 ## 4. Gestión de Contexto de IA
