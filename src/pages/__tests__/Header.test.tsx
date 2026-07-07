@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import { Header } from '../pages/ExplorerPage/components/Header/Header'
+import { Header } from '../ExplorerPage/components/Header/Header'
 import { MemoryRouter } from 'react-router-dom'
 import { expect, describe, it } from 'vitest'
-import rawMetadata from '../photos-metadata.json'
+import rawMetadata from '../../photos-metadata.json'
 
 describe('Header Component', () => {
   it('renders title, photo count and navigation link correctly', () => {

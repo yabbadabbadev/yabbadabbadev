@@ -1,3 +1,4 @@
+import type React from 'react'
 import type { PhotoMetadata, TimelineDataNode } from '../../../../types'
 import type L from 'leaflet'
 

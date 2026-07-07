@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { expect, vi, describe, it, beforeAll } from 'vitest'
-import { ExplorerProvider } from '../pages/ExplorerPage/components/ExplorerProvider/ExplorerProvider'
-import { Timeline } from '../pages/ExplorerPage/components/Timeline'
+import { ExplorerProvider } from '../ExplorerPage/components/ExplorerProvider/ExplorerProvider'
+import { Timeline } from '../ExplorerPage/components/Timeline'
 
 // Mock Leaflet
 vi.mock('leaflet', (): Record<string, unknown> => {

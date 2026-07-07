@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 // @ts-expect-error - process-images.js is JS in scripts folder outside TS source roots, so we ignore typing check for the import
-import { parseMetadata } from '../../scripts/process-images.js';
+import { parseMetadata } from '../../../scripts/process-images.js';
 
 describe('process-images parseMetadata', () => {
   it('should return null if GPS latitude or longitude is missing', () => {

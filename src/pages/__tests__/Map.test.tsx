@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { expect, vi, describe, it, beforeAll } from 'vitest'
-import { ExplorerProvider } from '../pages/ExplorerPage/components/ExplorerProvider/ExplorerProvider'
-import { Map } from '../pages/ExplorerPage/components/Map/Map'
+import { ExplorerProvider } from '../ExplorerPage/components/ExplorerProvider/ExplorerProvider'
+import { Map } from '../ExplorerPage/components/Map/Map'
 
 const { mockSetView, mockRemove, mockFitBounds, mockGetCenter, mockGetZoom, mockAddTo, mockAddLayer, mockGetBounds, mockMarkerOn } = vi.hoisted(() => ({
   mockSetView: vi.fn().mockReturnThis(),

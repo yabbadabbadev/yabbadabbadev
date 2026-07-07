@@ -1,6 +1,7 @@
+import type React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { expect, vi, describe, it, beforeAll } from 'vitest'
-import { ExplorerProvider, useExplorer } from '../pages/ExplorerPage/components/ExplorerProvider/ExplorerProvider'
+import { ExplorerProvider, useExplorer } from '../ExplorerPage/components/ExplorerProvider/ExplorerProvider'
 
 // Mock Leaflet
 vi.mock('leaflet', (): Record<string, unknown> => {
@@ -39,7 +40,7 @@ beforeAll((): void => {
 })
 
 describe('ExplorerProvider', () => {
-  const TestComponent = () => {
+  const TestComponent = (): React.ReactElement => {
     const { state, actions } = useExplorer()
     return (
       <div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import type React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ExplorerPage } from './pages/ExplorerPage'
 import { UploadPage } from './pages/UploadPage'

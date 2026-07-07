@@ -1,4 +1,4 @@
-import React from 'react'
+import type React from 'react'
 import { useExplorer } from '../ExplorerProvider'
 import './Lightbox.css'
 
