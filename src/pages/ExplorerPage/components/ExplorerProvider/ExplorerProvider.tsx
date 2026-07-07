@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useMemo, useRef } from 'react'
+import { createContext, useContext, useState, useMemo, useRef, type FC, type ReactNode } from 'react'
 import rawMetadata from '../../../../photos-metadata.json'
 import type { PhotoMetadata, TimelineDataNode } from '../../../../types'
 import type { ExplorerContextValue, ExplorerState, ExplorerActions, ExplorerMeta } from './types'
@@ -8,7 +8,7 @@ const ExplorerContext = createContext<ExplorerContextValue | null>(null)
 
 const photos: PhotoMetadata[] = rawMetadata as PhotoMetadata[]
 
-export const ExplorerProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ExplorerProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstance = useRef<L.Map | null>(null)
   const markersRef = useRef<{ [key: string]: L.Marker }>({})

@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react'
+import { useMemo, type FC } from 'react'
 import { useExplorer } from '../ExplorerProvider'
 import type { TimelinePoint } from '../../../../types'
 import './Timeline.css'
 
-export const Timeline: React.FC = () => {
+export const Timeline: FC = () => {
   const { state, actions } = useExplorer()
 
   const chartHeight = 60

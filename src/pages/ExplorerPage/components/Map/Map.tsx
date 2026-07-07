@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect, type FC } from 'react'
 import L from 'leaflet'
 import { useExplorer } from '../ExplorerProvider'
 import rawMetadata from '../../../../photos-metadata.json'
@@ -7,7 +7,7 @@ import './Map.css'
 
 const photos: PhotoMetadata[] = rawMetadata as PhotoMetadata[]
 
-export const Map: React.FC = () => {
+export const Map: FC = () => {
   const { state, actions, meta } = useExplorer()
 
   // Setup Leaflet Map
