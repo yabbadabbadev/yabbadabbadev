@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { ExplorerPage } from '../pages/ExplorerPage'
+import { ExplorerPage } from '../ExplorerPage'
 import { MemoryRouter } from 'react-router-dom'
 import { expect, vi, describe, it, beforeAll } from 'vitest'
 

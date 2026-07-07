@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import { UploadPage } from '../pages/UploadPage/UploadPage'
+import { UploadPage } from '../UploadPage'
 import { MemoryRouter } from 'react-router-dom'
 import { expect, vi, describe, it } from 'vitest'
 
