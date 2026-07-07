@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useMemo, useRef } from 'rea
 import rawMetadata from '../../../../photos-metadata.json'
 import type { PhotoMetadata, TimelineDataNode } from '../../../../types'
 import type { ExplorerContextValue, ExplorerState, ExplorerActions, ExplorerMeta } from './types'
-import L from 'leaflet'
+import type L from 'leaflet'
 
 const ExplorerContext = createContext<ExplorerContextValue | null>(null)
 

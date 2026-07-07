@@ -1,5 +1,5 @@
 import type { PhotoMetadata, TimelineDataNode } from '../../../../types'
-import L from 'leaflet'
+import type L from 'leaflet'
 
 export interface ExplorerState {
   selectedPhoto: PhotoMetadata | null
