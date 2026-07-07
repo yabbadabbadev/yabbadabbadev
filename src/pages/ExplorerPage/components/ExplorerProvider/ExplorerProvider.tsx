@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useMemo, useRef } from 'react'
 import rawMetadata from '../../../../photos-metadata.json'
-import { PhotoMetadata, TimelineDataNode } from '../../../../types'
-import { ExplorerContextValue, ExplorerState, ExplorerActions, ExplorerMeta } from './types'
+import type { PhotoMetadata, TimelineDataNode } from '../../../../types'
+import type { ExplorerContextValue, ExplorerState, ExplorerActions, ExplorerMeta } from './types'
 import L from 'leaflet'
 
 const ExplorerContext = createContext<ExplorerContextValue | null>(null)
@@ -27,7 +27,8 @@ export const ExplorerProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     photos.forEach((photo) => {
       const key = `${photo.year}-${photo.month.toString().padStart(2, '0')}`
       if (!counts[key]) {
-        const monthLabel = new Date(photo.year, photo.month - 1).toLocaleDateString('es-ES', { month: 'short' })
+        const monthStr = new Date(photo.year, photo.month - 1).toLocaleDateString('es-ES', { month: 'short' })
+        const monthLabel = monthStr.charAt(0).toUpperCase() + monthStr.slice(1)
         counts[key] = {
           count: 0,
           label: `${monthLabel} ${photo.year}`,
@@ -53,37 +54,44 @@ export const ExplorerProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return new Set<string>(data ? data.photos.map((p) => p.id) : [])
   }, [hoveredTimeNode, selectedTimeNode, timelineData])
 
-  const state: ExplorerState = {
+  const state: ExplorerState = useMemo(() => ({
     selectedPhoto,
     hoveredTimeNode,
     selectedTimeNode,
     highlightedPhotoIds,
     timelineData
-  }
+  }), [selectedPhoto, hoveredTimeNode, selectedTimeNode, highlightedPhotoIds, timelineData])
 
-  const actions: ExplorerActions = {
+  const actions: ExplorerActions = useMemo(() => ({
     setSelectedPhoto,
     setHoveredTimeNode,
     setSelectedTimeNode,
     clearTimeFilter: () => setSelectedTimeNode(null)
-  }
+  }), [])
 
-  const meta: ExplorerMeta = {
+  const meta: ExplorerMeta = useMemo(() => ({
     mapInstance,
     markersRef,
     boundsRef,
     lastMapStateRef,
     dialogRef,
     mapRef
-  }
+  }), [])
+
+  const contextValue: ExplorerContextValue = useMemo(() => ({
+    state,
+    actions,
+    meta
+  }), [state, actions, meta])
 
   return (
-    <ExplorerContext.Provider value={{ state, actions, meta }}>
+    <ExplorerContext.Provider value={contextValue}>
       {children}
     </ExplorerContext.Provider>
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useExplorer = (): ExplorerContextValue => {
   const context = useContext(ExplorerContext)
   if (!context) {

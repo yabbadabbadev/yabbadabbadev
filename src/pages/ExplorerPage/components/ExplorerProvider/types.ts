@@ -1,4 +1,4 @@
-import { PhotoMetadata, TimelineDataNode } from '../../../../types'
+import type { PhotoMetadata, TimelineDataNode } from '../../../../types'
 import L from 'leaflet'
 
 export interface ExplorerState {
