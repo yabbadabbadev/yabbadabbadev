@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import { App } from '../App'
-import { expect, vi } from 'vitest'
+import { ExplorerPage } from '../ExplorerPage'
+import { MemoryRouter } from 'react-router-dom'
+import { expect, vi, describe, it, beforeAll } from 'vitest'
 
 // Mock Leaflet
 vi.mock('leaflet', (): Record<string, unknown> => {
@@ -32,20 +33,28 @@ vi.mock('leaflet', (): Record<string, unknown> => {
   }
 })
 
-// Mock html-dialog-element functions
+// Mock HTMLDialogElement functions
 beforeAll((): void => {
   HTMLDialogElement.prototype.showModal = vi.fn()
   HTMLDialogElement.prototype.close = vi.fn()
 })
 
-describe('App Dashboard', (): void => {
-  it('renders the main interactive dashboard layout', (): void => {
-    render(<App />)
+describe('ExplorerPage', () => {
+  it('renders correctly with all subcomponents and layout wrapper', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <ExplorerPage />
+      </MemoryRouter>
+    )
 
-    // Verify Header Title exists
+    // Check that layout container is rendered
+    const layout = container.querySelector('.explorer-page-layout')
+    expect(layout).toBeInTheDocument()
+
+    // Check Header rendering
     expect(screen.getByRole('heading', { name: 'Explorador de Viajes', level: 1 })).toBeInTheDocument()
-    
-    // Verify Timeline header exists
+
+    // Check Timeline rendering
     expect(screen.getByRole('heading', { name: 'Línea Temporal de Capturas', level: 3 })).toBeInTheDocument()
   })
 })
