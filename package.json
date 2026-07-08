@@ -28,7 +28,7 @@
     "@vitejs/plugin-react": "^6.0.3",
     "eslint": "^9.38.0",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-react-refresh": "^0.5.3",
     "exifreader": "^4.41.0",
     "globals": "^17.6.0",
     "jsdom": "^29.1.1",
