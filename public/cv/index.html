@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Álex Fuentes — Staff Frontend Engineer</title>
+<meta name="description" content="Staff Frontend Engineer con más de 12 años construyendo producto web. Plataforma frontend, testing, CI/CD, observabilidad, sistemas de diseño e IA aplicada al desarrollo. Valencia, España.">
+<meta name="author" content="Álex Fuentes">
+<meta name="theme-color" content="#ce3b24">
+
+<!-- Al publicar, añade aquí tu URL real:
+     <link rel="canonical" href="https://TU-DOMINIO/">
+     <meta property="og:url" content="https://TU-DOMINIO/">
+     <meta property="og:image" content="https://TU-DOMINIO/og.png"> -->
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Álex Fuentes — Staff Frontend Engineer">
+<meta property="og:description" content="Staff Frontend Engineer con más de 12 años construyendo producto web. Plataforma frontend, testing, CI/CD, observabilidad, sistemas de diseño e IA aplicada al desarrollo.">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="profile:first_name" content="Álex">
+<meta property="profile:last_name" content="Fuentes">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23ce3b24'/%3E%3Ctext x='32' y='45' font-family='Helvetica,Arial,sans-serif' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle'%3EAF%3C/text%3E%3C/svg%3E">
+
+<style>
+/* ============================================================
+   Tokens
+   ============================================================ */
+:root{
+  --ink:#14161a;
+  --body:#333941;
+  --muted:#6d747e;
+  --rule:#dedcd7;
+  --accent:#c4341f;
+  --tint:#f7f6f3;
+  --paper:#ffffff;
+  --canvas:#e9e8e4;
+
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Carlito, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", "DejaVu Sans Mono", "Liberation Mono", Menlo, Consolas, monospace;
+
+  /* rhythm — screen values, overridden for print */
+  --lh: 1.55;
+  --sp-section: 1.7rem;
+  --sp-role: 1.35rem;
+  --sp-para: .55rem;
+  --sp-li: .5rem;
+  --sp-theme: 1rem;
+  --key-w: 10.2rem;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#f2f1ee;
+    --body:#c9ccd2;
+    --muted:#8d949e;
+    --rule:#333840;
+    --accent:#ff7a63;
+    --tint:#1c1f24;
+    --paper:#14161a;
+    --canvas:#0d0f12;
+  }
+}
+
+*{ box-sizing:border-box; }
+[hidden]{ display:none !important; }
+
+html{ font-size:16px; -webkit-text-size-adjust:100%; }
+
+body{
+  margin:0;
+  padding:2.5rem 1rem 4rem;
+  background:var(--canvas);
+  font-family:var(--sans);
+  font-size:1rem;
+  line-height:var(--lh);
+  color:var(--body);
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+
+.sheet{
+  max-width:52rem;
+  margin:0 auto;
+  padding:3rem 2.5rem 3.5rem;
+  background:var(--paper);
+  border-radius:2px;
+  box-shadow:0 1px 2px rgba(0,0,0,.12), 0 14px 40px rgba(0,0,0,.10);
+}
+@media (prefers-color-scheme: dark){
+  .sheet{ box-shadow:none; border:1px solid var(--rule); }
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.head{ padding-bottom:1.1rem; border-bottom:2px solid var(--ink); }
+
+h1{
+  margin:0 0 .3rem;
+  font-size:2.7rem;
+  line-height:1.02;
+  font-weight:700;
+  letter-spacing:-.028em;
+  color:var(--ink);
+}
+
+.role{
+  margin:0 0 .9rem;
+  font-family:var(--mono);
+  font-size:.8rem;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.role .sep{ color:var(--muted); }
+
+.contact{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.35rem 1.1rem;
+  font-family:var(--mono);
+  font-size:.78rem;
+  color:var(--muted);
+}
+.contact a{
+  color:var(--body);
+  text-decoration:none;
+  border-bottom:1px solid var(--rule);
+  padding-bottom:1px;
+}
+.contact a:hover{ color:var(--accent); border-bottom-color:var(--accent); }
+
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+section{ margin-top:var(--sp-section); }
+
+.label{
+  margin:0 0 .7rem;
+  padding-bottom:.3rem;
+  border-bottom:1px solid var(--rule);
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  break-after:avoid;
+}
+
+p{ margin:0 0 var(--sp-para); }
+p:last-child{ margin-bottom:0; }
+strong{ color:var(--ink); font-weight:700; }
+i{ font-style:italic; }
+
+ul{ margin:0; padding:0; list-style:none; }
+li{ position:relative; padding-left:.85rem; margin-bottom:var(--sp-li); }
+li:last-child{ margin-bottom:0; }
+li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:calc(.5em * var(--lh) - .5px);
+  width:.36rem;
+  height:1.5px;
+  background:var(--accent);
+}
+
+.tint{
+  background:var(--tint);
+  border-left:2px solid var(--accent);
+  padding:.9rem 1.1rem;
+}
+
+/* ============================================================
+   Roles
+   ============================================================ */
+.role-block{ margin-bottom:var(--sp-role); }
+.role-block:last-child{ margin-bottom:0; }
+.role-block.keep{ break-inside:avoid; }
+
+.role-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.15rem .6rem;
+  margin-bottom:.25rem;
+  break-after:avoid;
+}
+.org{ margin:0; font-size:1.14rem; font-weight:700; color:var(--ink); letter-spacing:-.008em; }
+.job{ font-size:1rem; }
+.when{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  color:var(--muted);
+  white-space:nowrap;
+}
+@media (min-width:38rem){
+  .role-head{ flex-wrap:nowrap; }
+  .org, .job{ white-space:nowrap; flex:none; }
+  .when{ margin-left:auto; flex:none; }
+}
+
+.intro{ margin-bottom:.7rem; }
+
+.theme{
+  margin:var(--sp-theme) 0 .35rem;
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink);
+  break-after:avoid;
+}
+.theme:first-of-type{ margin-top:0; }
+
+/* earlier roles: flowing one-liners */
+.prevline{ margin:0 0 .45rem; break-inside:avoid; }
+.prevline b{ color:var(--ink); }
+.prevline .yr{
+  font-family:var(--mono);
+  font-size:.72rem;
+  text-transform:uppercase;
+  color:var(--muted);
+  white-space:nowrap;
+}
+.dot{ color:var(--rule); padding:0 .1rem; }
+
+/* ============================================================
+   Key / value rows
+   ============================================================ */
+.row{ margin-bottom:.7rem; break-inside:avoid; }
+.row:last-child{ margin-bottom:0; }
+.key{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin-bottom:.1rem;
+}
+@media (min-width:38rem){
+  .row{ display:flex; gap:1rem; }
+  .key{ width:var(--key-w); flex:none; margin-bottom:0; padding-top:.22rem; }
+  .val{ flex:1; min-width:0; }
+}
+
+/* ============================================================
+   Controls (screen only)
+   ============================================================ */
+.actions{
+  max-width:52rem;
+  margin:0 auto .9rem;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:.6rem;
+}
+
+.lang{
+  display:flex;
+  border:1px solid var(--rule);
+  border-radius:2px;
+  overflow:hidden;
+  background:var(--paper);
+}
+.lang-btn{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.1em;
+  color:var(--muted);
+  background:transparent;
+  border:none;
+  padding:.6rem .85rem;
+  cursor:pointer;
+}
+.lang-btn + .lang-btn{ border-left:1px solid var(--rule); }
+.lang-btn:hover{ color:var(--ink); }
+.lang-btn.is-active{ color:var(--paper); background:var(--ink); }
+
+.print-btn{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--paper);
+  background:var(--accent);
+  border:none;
+  border-radius:2px;
+  padding:.6rem 1rem;
+  cursor:pointer;
+}
+.print-btn:hover{ filter:brightness(1.08); }
+@media (prefers-color-scheme: dark){
+  .print-btn{ color:#14161a; }
+  .lang-btn.is-active{ color:#14161a; background:var(--ink); }
+}
+
+/* ============================================================
+   Print — A4, two pages
+   ============================================================ */
+@media print{
+  :root{
+    --ink:#14161a;
+    --body:#333941;
+    --muted:#757c86;
+    --rule:#ddddd8;
+    --accent:#ce3b24;
+    --tint:#f7f6f3;
+    --paper:#fff;
+
+    --lh:1.30;
+    --sp-section:.73rem;
+    --sp-role:.73rem;
+    --sp-para:.4rem;
+    --sp-li:.25rem;
+    --sp-theme:.56rem;
+    --key-w:10.1rem;
+
+    /* al imprimir, evita fuentes anchas (p. ej. DejaVu Sans en Linux)
+       que empujarían el CV a una tercera página */
+    --sans: Calibri, Carlito, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  @page{ size:A4; margin:12mm 13mm 11mm 13mm; }
+
+  html{ font-size:8.7pt; }
+
+  body{
+    padding:0;
+    background:#fff;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  .sheet{
+    max-width:none;
+    margin:0;
+    padding:0;
+    border:none;
+    border-radius:0;
+    box-shadow:none;
+    background:#fff;
+  }
+
+  .actions{ display:none; }
+
+  .head{ padding-bottom:.75rem; border-bottom-width:1.6pt; }
+  h1{ font-size:2.7rem; margin-bottom:.28rem; }
+  .role{ font-size:.9rem; margin-bottom:.62rem; }
+  .contact{ font-size:.81rem; gap:0 1rem; }
+  .contact a{ border-bottom:none; }
+
+  .label{ font-size:.775rem; margin-bottom:.45rem; padding-bottom:.22rem; border-bottom-width:.5pt; }
+  .org{ font-size:1.146rem; }
+  .job{ font-size:1rem; }
+  .when, .theme, .key, .prevline .yr{ font-size:.775rem; }
+  .intro{ margin-bottom:.45rem; }
+  .tint{ padding:.62rem .9rem .67rem; border-left-width:1.6pt; }
+  .role-head{ margin-bottom:.11rem; flex-wrap:nowrap; }
+  .org, .job{ white-space:nowrap; flex:none; }
+  .when{ margin-left:auto; flex:none; }
+  .prevline{ margin-bottom:.27rem; }
+  .row{ margin-bottom:.29rem; }
+  li{ padding-left:.955rem; }
+  li::before{ width:.36rem; height:.9pt; }
+
+  a{ color:inherit; text-decoration:none; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="actions">
+  <div class="lang" role="group" aria-label="Idioma / Language">
+    <button type="button" class="lang-btn is-active" data-lang="es" aria-pressed="true">ES</button>
+    <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+  <button type="button" class="print-btn" id="print">Descargar en PDF</button>
+</div>
+
+<!-- ============================== ESPAÑOL ============================== -->
+<main class="sheet" id="cv-es">
+
+  <header class="head">
+    <h1>Álex Fuentes</h1>
+    <p class="role">Staff Frontend Engineer <span class="sep">·</span> Valencia, España</p>
+    <div class="contact">
+      <span><a href="mailto:alfupe@gmail.com">alfupe@gmail.com</a></span>
+      <span><a href="tel:+34625638441">625 638 441</a></span>
+      <span><a href="https://es.linkedin.com/in/alfupe" rel="me noopener">linkedin.com/in/alfupe</a></span>
+      <span><a href="https://github.com/alfupe" rel="me noopener">github.com/alfupe</a></span>
+    </div>
+  </header>
+
+  <section aria-labelledby="es-perfil">
+    <h2 class="label" id="es-perfil">Perfil</h2>
+    <p>Staff Frontend Engineer con más de 12 años construyendo producto web. Mi responsabilidad hoy es la plataforma frontend de una organización completa: definir el estándar técnico —testing, CI/CD, observabilidad, sistema de diseño, IA aplicada al desarrollo—, llevarlo a producción y conseguir que los equipos lo adopten de forma autónoma. Las iniciativas que lidero nacen resolviendo el problema en un proyecto piloto, se convierten en guía o herramienta y después se propagan al resto de la organización.</p>
+  </section>
+
+  <section aria-labelledby="es-relevante">
+    <h2 class="label" id="es-relevante">Lo más relevante</h2>
+    <div class="tint">
+      <ul>
+        <li><strong>Modernicé el CI/CD de toda una organización frontend</strong>: migración de Jenkins a GitHub Actions en más de una docena de proyectos y un nuevo sistema de publicación de librerías, automático y sin pasos manuales, adoptado como estándar por frontend y backend.</li>
+        <li><strong>Medición de la deuda técnica</strong>: creé la herramienta que mide la obsolescencia del parque de aplicaciones —observabilidad, dependencias, CI/CD— y que pasó a ser el instrumento de priorización de la modernización frontend.</li>
+        <li><strong>Estrategia de IA en desarrollo</strong>: definí el flujo de desarrollo asistido con Claude Code, lo llevé a todos los equipos frontend y publiqué un conjunto de herramientas de modernización de código que aplican de forma autónoma.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="es-experiencia">
+    <h2 class="label" id="es-experiencia">Experiencia</h2>
+
+    <article class="role-block">
+      <div class="role-head">
+        <h3 class="org">Mercadona Tech</h3>
+        <span class="job">Staff Frontend Engineer</span>
+        <span class="when">may. 2024 — actualidad</span>
+      </div>
+      <p class="intro">Referente técnico de frontend con impacto transversal en las distintas verticales de logística y ecommerce de la compañía.</p>
+
+      <p class="theme">Plataforma y CI/CD</p>
+      <ul>
+        <li>Lideré la migración del CI/CD de Jenkins a GitHub Actions: validé el proceso ejecutando las primeras migraciones de extremo a extremo y construí workflows reutilizables y documentación técnica de apoyo.</li>
+        <li>Diseñé e implanté el sistema de publicación de librerías: versionado y changelog automáticos a partir del historial del repositorio.</li>
+        <li>Creé la herramienta interna que mide el nivel de obsolescencia del parque de aplicaciones —aproximadamente 60 aplicaciones y librerías— en observabilidad, dependencias y estado del CI/CD, y que se convirtió en el instrumento de priorización y seguimiento de la modernización frontend.</li>
+        <li>Unifiqué el acceso a los productos frontend sobre una única librería de <i>login</i> federado (OIDC).</li>
+      </ul>
+
+      <p class="theme">Calidad y testing</p>
+      <ul>
+        <li>Contribuyo al estándar de testing frontend de la compañía —TDD <i>outside-in</i> con React Testing Library y tests orientados al comportamiento del usuario—: trabajo en la mejora de nuestro framework de testing y difundo las buenas prácticas mediante artículos, charlas y workshops.</li>
+        <li>Participé en la resolución de una de las causas más habituales de tests inestables: diagnóstico del origen, corrección en la librería de testing común y despliegue a los proyectos afectados, lo que redujo las ejecuciones de pipeline que había que repetir.</li>
+      </ul>
+
+      <p class="theme">Observabilidad</p>
+      <ul>
+        <li>Impulsé la librería de monitoring frontend y su adopción en todos los proyectos, con Sentry correctamente configurado para depurar en producción. Coordino el grupo que define el estándar de observabilidad de la organización: métricas de latencia y de error, APM, trazas distribuidas y dashboards en Elastic/Kibana.</li>
+      </ul>
+
+      <p class="theme">Sistemas de diseño</p>
+      <ul>
+        <li>Dirigí la elección de la base técnica del nuevo sistema de diseño para aplicaciones web con un framework de evaluación propio —rendimiento, accesibilidad y experiencia de desarrollo, con criterios ponderados y criterios de veto—, del que salió un sistema construido sobre React Aria. Colaboro además en el mantenimiento y la evolución del resto de sistemas de diseño de la casa.</li>
+        <li>Construí el pipeline de Design Tokens de extremo a extremo: de la herramienta de diseño a variables por plataforma —web, iOS y Android— generadas automáticamente en CI y publicadas como paquete instalable por los equipos.</li>
+      </ul>
+
+      <p class="theme">IA aplicada al desarrollo</p>
+      <ul>
+        <li>Lidero la estrategia de uso de IA en los equipos frontend: diseño del flujo de desarrollo asistido con Claude Code, apoyado en el framework Superpowers, <i>onboarding</i> individualizado por equipo y seguimiento del uso real y de las fricciones detectadas.</li>
+        <li>Publiqué un catálogo de herramientas de modernización de código —migraciones de lenguaje, de librerías y de CI/CD— que los equipos aplican de forma autónoma, en mejora continua con su feedback y con validación previa sobre proyectos reales.</li>
+      </ul>
+
+      <p class="theme">Liderazgo técnico</p>
+      <p>Diseñé y puse en marcha el modelo de squads frontend: grupos pequeños con <i>ownership</i> explícito y liderazgo distribuido. Acompaño a perfiles frontend en su incorporación a nuevos equipos con mentoría, <i>pairing</i> y revisiones técnicas, y participo en las entrevistas técnicas de selección.</p>
+    </article>
+
+    <article class="role-block keep">
+      <div class="role-head">
+        <h3 class="org">Mercadona Tech</h3>
+        <span class="job">Frontend Engineer</span>
+        <span class="when">nov. 2022 — may. 2024</span>
+      </div>
+      <ul>
+        <li>Desarrollo de producto en equipos de logística y operaciones con React y TypeScript, aplicando TDD <i>outside-in</i> desde el primer día.</li>
+        <li>Modernización de aplicaciones con años de deuda técnica: sustitución de suites de test obsoletas, migración a TypeScript, alta de observabilidad y puesta al día de dependencias y CI/CD.</li>
+      </ul>
+    </article>
+
+    <article class="role-block keep">
+      <div class="role-head">
+        <h3 class="org">EDEM Escuela de Empresarios</h3>
+        <span class="job">Docente</span>
+        <span class="when">dic. 2019 — jun. 2026</span>
+      </div>
+      <p>Docencia de WordPress y Shopify en el Máster en Emprendimiento y Liderazgo y en el Máster en Marketing y Venta Online.</p>
+    </article>
+
+    <article class="role-block keep">
+      <div class="role-head">
+        <h3 class="org">Openbank</h3>
+        <span class="job">Frontend Developer</span>
+        <span class="when">ago. 2022 — nov. 2022</span>
+      </div>
+      <p><i>Microfrontends</i> y vistas híbridas de la aplicación web del banco digital con React, Redux, TypeScript y Flow; Jest, Testing Library y Enzyme.</p>
+    </article>
+
+    <article class="role-block keep">
+      <div class="role-head">
+        <h3 class="org">Cecotec Innovaciones</h3>
+        <span class="job">Frontend Developer</span>
+        <span class="when">dic. 2020 — ago. 2022</span>
+      </div>
+      <p>Aplicaciones y librerías internas de gestión y logística con React 17, GraphQL (Relay) y Storybook. Suites de test con Jest, Testing Library y Cypress.</p>
+    </article>
+  </section>
+
+  <section aria-labelledby="es-previa">
+    <h2 class="label" id="es-previa">Trayectoria previa</h2>
+    <p class="prevline"><b>Sportmaniacs</b> <span class="dot">·</span> Frontend Developer <span class="dot">·</span> <span class="yr">sep. 2018 — nov. 2020</span> <span class="dot">·</span> Frontend de una plataforma de cronometraje deportivo con React 16.</p>
+    <p class="prevline"><b>Notikumi</b> <span class="dot">·</span> Frontend Developer <span class="dot">·</span> <span class="yr">nov. 2016 — sep. 2018</span> <span class="dot">·</span> Aplicaciones de la compañía con Angular 2+ y TypeScript.</p>
+    <p class="prevline"><b>Nectar Estudio</b> <span class="dot">·</span> Frontend Developer <span class="dot">·</span> <span class="yr">abr. 2016 — nov. 2016</span> <span class="dot">·</span> HTML, SASS, JavaScript, jQuery, PHP y MySQL sobre Yeoman y WordPress. Clientes: Lois Jeans, APIV, The Keen Folks.</p>
+    <p class="prevline"><b>Increnta</b> <span class="dot">·</span> Web Developer <span class="dot">·</span> <span class="yr">abr. 2014 — abr. 2016</span> <span class="dot">·</span> Front y back (80/20) sobre MVC propio con PHP, MySQL y JavaScript: webs corporativas, ecommerce e <i>inbound marketing</i>. Clientes: Robert Bosch España, Telefónica, CEOE, Jeanologia.</p>
+    <p class="prevline"><b>Regalamos.es / Splitfy.com</b> <span class="dot">·</span> Frontend Developer <span class="dot">·</span> <span class="yr">dic. 2013 — abr. 2014</span> <span class="dot">·</span> Frontend responsive con Yii, Bootstrap 3 y jQuery.</p>
+  </section>
+
+  <section aria-labelledby="es-stack">
+    <h2 class="label" id="es-stack">Stack</h2>
+    <div class="row"><div class="key">Lenguajes, frameworks</div><div class="val">TypeScript, JavaScript (ES2015+), React (hooks, Redux), React Router, Angular 2+, HTML5, CSS moderno (SASS, custom properties, container queries), Node.js</div></div>
+    <div class="row"><div class="key">Testing</div><div class="val">TDD <i>outside-in</i>, React Testing Library, Wrapito, Mock Service Worker, Jest, Playwright, Cypress, <i>contract testing</i>, Mother Object y Builders</div></div>
+    <div class="row"><div class="key">Plataforma, CI/CD</div><div class="val">GitHub Actions, automatización de releases y versionado semántico, actualización automática de dependencias, Docker, registries npm privados, monorepos, Jenkins (<i>legacy</i>)</div></div>
+    <div class="row"><div class="key">Observabilidad</div><div class="val">Sentry y <i>sourcemaps</i>, Elastic/Kibana, APM y trazas distribuidas, métricas de latencia y percentiles, Amplitude, feature flags con Unleash</div></div>
+    <div class="row"><div class="key">Diseño e IA</div><div class="val">React Aria, Storybook, Design Tokens, accesibilidad (WAI-ARIA, navegación por teclado), Figma · Claude Code, diseño de <i>skills</i> y plugins, MCP</div></div>
+    <div class="row"><div class="key">Otros</div><div class="val">GraphQL (Relay), REST, OIDC, arquitectura frontend, PWA, WordPress y Shopify (desarrollo)</div></div>
+  </section>
+
+  <section aria-labelledby="es-divulgacion">
+    <h2 class="label" id="es-divulgacion">Divulgación y comunidad</h2>
+    <ul>
+      <li><strong>Ponencia</strong> <span lang="en">«TDD with AI: the veteran and the influencer who can’t agree (but still write tests)»</span>, VLCTechFest 2026, Las Naves, Valencia (may. 2026): charla a dos voces, en inglés y en la sala principal del evento.</li>
+      <li><strong>Artículo</strong> «Cómo escribir tests de frontend que imitan a tus usuarios», blog de ingeniería de Mercadona Tech en Medium (dic. 2025), con repositorio de ejemplo público.</li>
+      <li><strong>Workshop</strong> «TDD Outside-In en desarrollo frontend», comunidad Awakatech, Valencia (mar. 2026): organización y ponencia. <strong>Workshop de TDD con React para Woman in Tech</strong>: tres ediciones.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="es-formacion">
+    <h2 class="label" id="es-formacion">Formación e idiomas</h2>
+    <div class="row"><div class="key">Formación</div><div class="val">Grado en Multimedia, Universitat Oberta de Catalunya (en curso) · Formación continua en TypeScript, arquitectura y prácticas de ingeniería</div></div>
+    <div class="row"><div class="key">Idiomas</div><div class="val">Castellano y valenciano nativos · Inglés de trabajo, en torno a B2: ponencia en inglés en VLCTechFest 2026, documentación técnica a diario y conversación profesional</div></div>
+  </section>
+
+</main>
+
+<!-- ============================== ENGLISH ============================== -->
+<main class="sheet" id="cv-en" hidden>
+
+  <header class="head">
+    <h1>Álex Fuentes</h1>
+    <p class="role">Staff Frontend Engineer <span class="sep">·</span> Valencia, Spain</p>
+    <div class="contact">
+      <span><a href="mailto:alfupe@gmail.com">alfupe@gmail.com</a></span>
+      <span><a href="tel:+34625638441">+34 625 638 441</a></span>
+      <span><a href="https://es.linkedin.com/in/alfupe" rel="me noopener">linkedin.com/in/alfupe</a></span>
+      <span><a href="https://github.com/alfupe" rel="me noopener">github.com/alfupe</a></span>
+    </div>
+  </header>
+
+  <section aria-labelledby="en-profile">
+    <h2 class="label" id="en-profile">Profile</h2>
+    <p>Staff Frontend Engineer with more than 12 years building web products. My remit today is the frontend platform of an entire organization: setting the technical standard —testing, CI/CD, observability, design systems, AI-assisted development—, taking it to production and getting teams to adopt it on their own. The initiatives I lead start by solving the problem in a pilot project, turn into a guide or a tool, and then spread across the rest of the organization.</p>
+  </section>
+
+  <section aria-labelledby="en-highlights">
+    <h2 class="label" id="en-highlights">Highlights</h2>
+    <div class="tint">
+      <ul>
+        <li><strong>Modernized the CI/CD of an entire frontend organization</strong>: migrated more than a dozen projects from Jenkins to GitHub Actions, plus a new library publishing system —automatic and with no manual steps— adopted as the standard by both frontend and backend.</li>
+        <li><strong>Made technical debt measurable</strong>: built the tool that scores how outdated the application estate is —observability, dependencies, CI/CD— and which became the instrument for prioritizing frontend modernization.</li>
+        <li><strong>AI strategy for development</strong>: defined the Claude Code-assisted development workflow, rolled it out to every frontend team and published a set of code modernization tools they now apply on their own.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="en-experience">
+    <h2 class="label" id="en-experience">Experience</h2>
+
+    <article class="role-block">
+      <div class="role-head">
+        <h3 class="org">Mercadona Tech</h3>
+        <span class="job">Staff Frontend Engineer</span>
+        <span class="when">May 2024 — present</span>
+      </div>
+      <p class="intro">Frontend technical reference with cross-cutting impact across the company’s logistics and ecommerce verticals.</p>
+
+      <p class="theme">Platform and CI/CD</p>
+      <ul>
+        <li>Led the CI/CD migration from Jenkins to GitHub Actions: validated the approach by running the first end-to-end migrations myself, then built reusable workflows and the supporting technical documentation.</li>
+        <li>Designed and rolled out the library publishing system: automatic versioning and changelogs derived from repository history.</li>
+        <li>Built the internal tool that scores how outdated the application estate is —roughly 60 applications and libraries— across observability, dependencies and CI/CD status, and which became the instrument for prioritizing and tracking frontend modernization.</li>
+        <li>Unified access to frontend products on a single federated login (OIDC) library.</li>
+      </ul>
+
+      <p class="theme">Quality and testing</p>
+      <ul>
+        <li>I contribute to the company’s frontend testing standard —outside-in TDD with React Testing Library and tests driven by user behaviour—: I work on improving our testing framework and spread good practice through articles, talks and workshops.</li>
+        <li>Took part in fixing one of the most common causes of unstable tests: diagnosing the origin, correcting it in the shared testing library and rolling that out to the affected projects, which cut down the pipeline runs that had to be repeated.</li>
+      </ul>
+
+      <p class="theme">Observability</p>
+      <ul>
+        <li>Drove the frontend monitoring library and its adoption across every project, with Sentry properly configured for debugging in production. I coordinate the group defining the organization’s observability standard: latency and error metrics, APM, distributed tracing and Elastic/Kibana dashboards.</li>
+      </ul>
+
+      <p class="theme">Design systems</p>
+      <ul>
+        <li>Led the choice of technical foundation for the new web design system through an evaluation framework of my own —performance, accessibility and developer experience, with weighted criteria and veto criteria—, which produced a system built on React Aria. I also contribute to maintaining and evolving the company’s other design systems.</li>
+        <li>Built the end-to-end Design Tokens pipeline: from the design tool to per-platform variables —web, iOS and Android— generated automatically in CI and published as a package teams can install.</li>
+      </ul>
+
+      <p class="theme">AI applied to development</p>
+      <ul>
+        <li>I lead AI adoption across the frontend teams: designed the Claude Code-assisted development workflow, built on the Superpowers framework, ran team-by-team onboarding and track real usage and the friction that shows up.</li>
+        <li>Published a catalogue of code modernization tools —language, library and CI/CD migrations— that teams apply on their own, continuously improved with their feedback and validated on real projects first.</li>
+      </ul>
+
+      <p class="theme">Technical leadership</p>
+      <p>Designed and launched the frontend squads model: small groups with explicit ownership and distributed leadership. I support frontend engineers joining new teams through mentoring, pairing and technical reviews, and I take part in technical hiring interviews.</p>
+    </article>
+
+    <article class="role-block keep">
+      <div class="role-head">
+        <h3 class="org">Mercadona Tech</h3>
+        <span class="job">Frontend Engineer</span>
+        <span class="when">Nov 2022 — May 2024</span>
+      </div>
+      <ul>
+        <li>Product development in logistics and operations teams with React and TypeScript, applying outside-in TDD from day one.</li>
+        <li>Modernized applications carrying years of technical debt: replaced obsolete test suites, migrated to TypeScript, added observability and brought dependencies and CI/CD up to date.</li>
+      </ul>
+    </article>
+
+    <article class="role-block keep">
+      <div class="role-head">
+        <h3 class="org">EDEM Escuela de Empresarios</h3>
+        <span class="job">Lecturer</span>
+        <span class="when">Dec 2019 — Jun 2026</span>
+      </div>
+      <p>Taught WordPress and Shopify on the Master’s in Entrepreneurship and Leadership and the Master’s in Marketing and Online Sales.</p>
+    </article>
+
+    <article class="role-block keep">
+      <div class="role-head">
+        <h3 class="org">Openbank</h3>
+        <span class="job">Frontend Developer</span>
+        <span class="when">Aug 2022 — Nov 2022</span>
+      </div>
+      <p>Microfrontends and hybrid views of the digital bank’s web application with React, Redux, TypeScript and Flow; Jest, Testing Library and Enzyme.</p>
+    </article>
+
+    <article class="role-block keep">
+      <div class="role-head">
+        <h3 class="org">Cecotec Innovaciones</h3>
+        <span class="job">Frontend Developer</span>
+        <span class="when">Dec 2020 — Aug 2022</span>
+      </div>
+      <p>Internal management and logistics applications and libraries with React 17, GraphQL (Relay) and Storybook. Test suites with Jest, Testing Library and Cypress.</p>
+    </article>
+  </section>
+
+  <section aria-labelledby="en-earlier">
+    <h2 class="label" id="en-earlier">Earlier roles</h2>
+    <p class="prevline"><b>Sportmaniacs</b> <span class="dot">·</span> Frontend Developer <span class="dot">·</span> <span class="yr">Sep 2018 — Nov 2020</span> <span class="dot">·</span> Frontend of a sports timing platform with React 16.</p>
+    <p class="prevline"><b>Notikumi</b> <span class="dot">·</span> Frontend Developer <span class="dot">·</span> <span class="yr">Nov 2016 — Sep 2018</span> <span class="dot">·</span> Company applications with Angular 2+ and TypeScript.</p>
+    <p class="prevline"><b>Nectar Estudio</b> <span class="dot">·</span> Frontend Developer <span class="dot">·</span> <span class="yr">Apr 2016 — Nov 2016</span> <span class="dot">·</span> HTML, SASS, JavaScript, jQuery, PHP and MySQL on Yeoman and WordPress. Clients: Lois Jeans, APIV, The Keen Folks.</p>
+    <p class="prevline"><b>Increnta</b> <span class="dot">·</span> Web Developer <span class="dot">·</span> <span class="yr">Apr 2014 — Apr 2016</span> <span class="dot">·</span> Front and back (80/20) on an in-house MVC with PHP, MySQL and JavaScript: corporate sites, ecommerce and inbound marketing. Clients: Robert Bosch España, Telefónica, CEOE, Jeanologia.</p>
+    <p class="prevline"><b>Regalamos.es / Splitfy.com</b> <span class="dot">·</span> Frontend Developer <span class="dot">·</span> <span class="yr">Dec 2013 — Apr 2014</span> <span class="dot">·</span> Responsive frontend with Yii, Bootstrap 3 and jQuery.</p>
+  </section>
+
+  <section aria-labelledby="en-stack">
+    <h2 class="label" id="en-stack">Stack</h2>
+    <div class="row"><div class="key">Languages, frameworks</div><div class="val">TypeScript, JavaScript (ES2015+), React (hooks, Redux), React Router, Angular 2+, HTML5, modern CSS (SASS, custom properties, container queries), Node.js</div></div>
+    <div class="row"><div class="key">Testing</div><div class="val">Outside-in TDD, React Testing Library, Wrapito, Mock Service Worker, Jest, Playwright, Cypress, contract testing, Mother Object and Builders</div></div>
+    <div class="row"><div class="key">Platform, CI/CD</div><div class="val">GitHub Actions, release automation and semantic versioning, automated dependency updates, Docker, private npm registries, monorepos, Jenkins (legacy)</div></div>
+    <div class="row"><div class="key">Observability</div><div class="val">Sentry and sourcemaps, Elastic/Kibana, APM and distributed tracing, latency and percentile metrics, Amplitude, feature flags with Unleash</div></div>
+    <div class="row"><div class="key">Design and AI</div><div class="val">React Aria, Storybook, Design Tokens, accessibility (WAI-ARIA, keyboard navigation), Figma · Claude Code, skill and plugin design, MCP</div></div>
+    <div class="row"><div class="key">Other</div><div class="val">GraphQL (Relay), REST, OIDC, frontend architecture, PWA, WordPress and Shopify (development)</div></div>
+  </section>
+
+  <section aria-labelledby="en-speaking">
+    <h2 class="label" id="en-speaking">Speaking and community</h2>
+    <ul>
+      <li><strong>Talk</strong> “TDD with AI: the veteran and the influencer who can’t agree (but still write tests)”, VLCTechFest 2026, Las Naves, Valencia (May 2026): a two-hander, delivered in English on the event’s main track.</li>
+      <li><strong>Article</strong> <span lang="es">“Cómo escribir tests de frontend que imitan a tus usuarios”</span> (How to write frontend tests that mimic your users), Mercadona Tech engineering blog on Medium (Dec 2025), with a public example repository.</li>
+      <li><strong>Workshop</strong> “Outside-In TDD in frontend development”, Awakatech community, Valencia (Mar 2026): organizer and speaker. <strong>TDD with React workshop for Woman in Tech</strong>: three editions.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="en-education">
+    <h2 class="label" id="en-education">Education and languages</h2>
+    <div class="row"><div class="key">Education</div><div class="val">BSc in Multimedia, Universitat Oberta de Catalunya (in progress) · Ongoing training in TypeScript, architecture and engineering practices</div></div>
+    <div class="row"><div class="key">Languages</div><div class="val">Native Spanish and Valencian · Working English, around B2: spoke in English at VLCTechFest 2026, read technical documentation daily and hold professional conversations</div></div>
+  </section>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Álex Fuentes",
+  "jobTitle":"Staff Frontend Engineer",
+  "email":"mailto:alfupe@gmail.com",
+  "address":{"@type":"PostalAddress","addressLocality":"Valencia","addressCountry":"ES"},
+  "sameAs":["https://es.linkedin.com/in/alfupe","https://github.com/alfupe"],
+  "knowsAbout":["Frontend architecture","TypeScript","React","Test-Driven Development","Continuous integration","Observability","Design systems","AI-assisted development"],
+  "knowsLanguage":["es","ca","en"]
+}
+</script>
+
+<script>
+(function(){
+  var PRINT_LABEL = { es:"Descargar en PDF", en:"Download as PDF" };
+  var printBtn = document.getElementById("print");
+  var langBtns = document.querySelectorAll(".lang-btn");
+
+  function setLang(lang){
+    if (lang !== "en") lang = "es";
+    document.getElementById("cv-es").hidden = (lang !== "es");
+    document.getElementById("cv-en").hidden = (lang !== "en");
+    document.documentElement.lang = lang;
+    printBtn.textContent = PRINT_LABEL[lang];
+    for (var i = 0; i < langBtns.length; i++){
+      var on = langBtns[i].getAttribute("data-lang") === lang;
+      langBtns[i].classList.toggle("is-active", on);
+      langBtns[i].setAttribute("aria-pressed", on ? "true" : "false");
+    }
+    try{
+      history.replaceState(null, "", lang === "en" ? "?lang=en" : location.pathname);
+    }catch(e){ /* file:// u origen opaco */ }
+  }
+
+  // idioma inicial: ?lang=en o #en en la URL; por defecto, español
+  var initial = /[?&]lang=en\b/.test(location.search) || location.hash === "#en" ? "en" : "es";
+  if (initial === "en") setLang("en");
+
+  for (var i = 0; i < langBtns.length; i++){
+    langBtns[i].addEventListener("click", function(){
+      setLang(this.getAttribute("data-lang"));
+    });
+  }
+
+  printBtn.addEventListener("click", function(){ window.print(); });
+})();
+</script>
+
+</body>
+</html>
